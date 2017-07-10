@@ -28,16 +28,27 @@ public void conexao(){//método responsavel por realizar a conexao com o banco d
        try {
            System.setProperty("jdbc.Drivers", driver);// seta a propriedade do driver de conexao
            con = DriverManager.getConnection(caminho, usuario, senha);// realiza a conexao com o banco de dados
-     JOptionPane.showMessageDialog(null, "Conectado com sucesso");
+   //  JOptionPane.showMessageDialog(null, "Conectado com sucesso");
        } catch (SQLException ex) { // excessão 
           JOptionPane.showMessageDialog(null, "Erro de conexao!\n Erro:"+ ex.getMessage());
        }
 
     }
+
+     public void executeSQL(String sql){
+       try {
+           atm = con.createStatement(rs.TYPE_SCROLL_INSENSITIVE, rs.CONCUR_READ_ONLY);
+           rs = atm.executeQuery(sql);
+       } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, "Erro de ExecuteSQL!\nErro: "+ex.getMessage());
+       }
+     }
   
 public void desconecta(){
        try {
            con.close();
+           JOptionPane.showMessageDialog(null, "Desconectado com Sucesso");
+      
        } catch (SQLException ex) {
           JOptionPane.showMessageDialog(null, "Erro ao fechar a conexao!\n Erro:"+ ex.getMessage());
        

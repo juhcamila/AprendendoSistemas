@@ -1,22 +1,15 @@
 package Formularios;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+import utilitarios.ConectaBanco;
 
-/**
- *
- * @author MAQLABiii
- */
+
 public class Principal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Principal
-     */
+    ConectaBanco conexao = new ConectaBanco(); // variavel global
+    
     public Principal() {
         initComponents();
+        conexao.conexao();
     }
 
     /**
@@ -55,8 +48,18 @@ public class Principal extends javax.swing.JFrame {
         setTitle("Sistema de Vendas");
 
         jMenu1.setText("Cadastros");
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
 
         jMenuItem1.setText("Estados");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem1);
 
         jMenuItem2.setText("Cidades");
@@ -132,8 +135,18 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenu7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu7MouseClicked
+         conexao.desconecta();
         System.exit(0);
     }//GEN-LAST:event_jMenu7MouseClicked
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+      FrmEstado frm= new FrmEstado();
+       frm.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
