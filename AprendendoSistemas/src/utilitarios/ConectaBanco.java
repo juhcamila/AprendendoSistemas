@@ -47,7 +47,7 @@ public void conexao(){//método responsavel por realizar a conexao com o banco d
 public void desconecta(){
        try {
            con.close();
-           JOptionPane.showMessageDialog(null, "Desconectado com Sucesso");
+          // JOptionPane.showMessageDialog(null, "Desconectado com Sucesso");
       
        } catch (SQLException ex) {
           JOptionPane.showMessageDialog(null, "Erro ao fechar a conexao!\n Erro:"+ ex.getMessage());

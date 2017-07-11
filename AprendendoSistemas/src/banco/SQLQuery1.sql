@@ -76,3 +76,5 @@ primary key(idvenda,idproduto),
 foreign key (idvenda) references venda(idvenda),
 foreign key(idproduto) references produtos(idproduto)
 )
+
+select * from estados
